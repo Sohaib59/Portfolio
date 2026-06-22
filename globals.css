@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #050508;
+  --neural: #7C3AED;
+  --neural-light: #9D5CF2;
+  --cyan: #00F5FF;
+  --ghost: #E8E8F0;
+  --surface-1: #0D0D1A;
+  --surface-2: #141428;
+  --surface-3: #1E1E3A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050508;
+  color: #E8E8F0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D1A;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7C3AED, #00F5FF);
+  border-radius: 10px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(124, 58, 237, 0.4);
+  color: #E8E8F0;
+}
+
+/* Utility classes */
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+.gradient-text {
+  background: linear-gradient(135deg, #7C3AED 0%, #00F5FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-amber {
+  background: linear-gradient(135deg, #FFB700 0%, #FF6B35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(13, 13, 26, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(0, 245, 255, 0.04) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 245, 255, 0.5);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2), 0 0 60px rgba(0, 245, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+.glow-neural {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.4), 0 0 40px rgba(124, 58, 237, 0.2);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4), 0 0 40px rgba(0, 245, 255, 0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+  border: 1px solid rgba(124, 58, 237, 0.5);
+  color: #E8E8F0;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(0, 245, 255, 0.4);
+  color: #00F5FF;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 245, 255, 0.1);
+  border-color: rgba(0, 245, 255, 0.8);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #00F5FF;
+  opacity: 0.7;
+}
+
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Grid noise overlay */
+.grid-overlay {
+  background-image: 
+    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Scanning line animation */
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.4), transparent);
+  animation: scan 6s linear infinite;
+  pointer-events: none;
+}
+
+/* Tag styles */
+.tech-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #9D5CF2;
+  letter-spacing: 0.05em;
+}
+
+/* Input styles */
+.input-field {
+  background: rgba(13, 13, 26, 0.8);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #E8E8F0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: rgba(0, 245, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.1);
+}
+
+.input-field::placeholder {
+  color: rgba(232, 232, 240, 0.3);
+}
+
+textarea.input-field {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Hover glow for project cards */
+.project-card {
+  perspective: 1000px;
+}
+
+.project-card-inner {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover .project-card-inner {
+  transform: rotateX(2deg) rotateY(-2deg) translateY(-8px);
+}
+
+/* Status badge */
+.status-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #4ade80;
+}
+
+.status-live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse 2s infinite;
+}
+
+/* Section transitions */
+section {
+  position: relative;
+}
+
+/* Custom checkbox */
+.skill-bar-fill {
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #7C3AED, #00F5FF);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem; }
+}
